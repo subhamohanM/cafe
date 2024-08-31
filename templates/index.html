@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozy Cafe</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0e6e6;
+            color: #5a4b4b;
+        }
+        header {
+            background-color: #ffd1dc;
+            color: #5a4b4b;
+            text-align: center;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background-color: #fff5ee;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .tabs {
+            display: flex;
+            background-color: #e0f0e3;
+        }
+        .tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+        .tab:hover {
+            background-color: #c5e1cb;
+        }
+        .tab.active {
+            background-color: #ffd1dc;
+            color: #5a4b4b;
+        }
+        .menu-content {
+            padding: 2rem;
+        }
+        .menu-section {
+            display: none;
+        }
+        .menu-section.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h2 {
+            color: #8e7474;
+            border-bottom: 2px solid #ffd1dc;
+            padding-bottom: 0.5rem;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background-color: #fff;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        li:hover {
+            background-color: #ffeef2;
+        }
+        .menu-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cozy Cafe</h1>
+    </header>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" data-tab="coffee">Coffee</div>
+            <div class="tab" data-tab="tea">Tea</div>
+            <div class="tab" data-tab="snacks">Snacks</div>
+        </div>
+        <div class="menu-content">
+            <div class="menu-section active" id="coffee">
+                <img src="https://media.istockphoto.com/id/814684194/photo/coffee-beans-and-hot-cofee-cup-with-latte-art-on-wooden-background-side-view-with-copy-space.jpg?s=612x612&w=0&k=20&c=HAKafzNkAkO4zhKu6tuz5yZr6ILhh5FKqhrGXikfjAo=" alt="Coffee selection" class="menu-image">
+                <h2>Coffee Menu</h2>
+                <ul>
+                    <li>Espresso - $2.50</li>
+                    <li>Cappuccino - $3.50</li>
+                    <li>Latte - $3.75</li>
+                    <li>Americano - $3.00</li>
+                    <li>Mocha - $4.00</li>
+                </ul>
+            </div>
+            <div class="menu-section" id="tea">
+                <img src="https://t4.ftcdn.net/jpg/07/02/00/37/360_F_702003725_dVu4JrEhN4OY1ZlxGa4sdMedEZ7tQT1R.jpg" alt="Tea selection" class="menu-image">
+                <h2>Tea Selection</h2>
+                <ul>
+                    <li>Earl Grey - $2.75</li>
+                    <li>English Breakfast - $2.75</li>
+                    <li>Green Tea - $3.00</li>
+                    <li>Chamomile - $3.00</li>
+                    <li>Peppermint - $3.00</li>
+                </ul>
+            </div>
+            <div class="menu-section" id="snacks">
+                <img src="https://www.shutterstock.com/image-photo/happy-friends-group-cheering-mojito-600nw-2101691149.jpg" alt="Delicious snacks" class="menu-image">
+                <h2>Delicious Snacks</h2>
+                <ul>
+                    <li>Croissant - $2.50</li>
+                    <li>Blueberry Muffin - $3.00</li>
+                    <li>Chocolate Chip Cookie - $1.75</li>
+                    <li>Ham and Cheese Sandwich - $5.50</li>
+                    <li>Fruit Salad - $4.50</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            const menuSections = document.querySelectorAll('.menu-section');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabId = tab.getAttribute('data-tab');
+
+                    tabs.forEach(t => t.classList.remove('active'));
+                    menuSections.forEach(section => section.classList.remove('active'));
+
+                    tab.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

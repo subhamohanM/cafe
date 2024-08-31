@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background-image: url('{{ url_for('static', filename='background.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            color: #333333;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            backdrop-filter: blur(5px);
+        }
+
+        .login-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-box h1 {
+            color: #2a6db8;
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .msg {
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        .textbox {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+        }
+
+        .btn-custom {
+            width: 100%;
+            padding: 10px;
+            background-color: #2a6db8;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .btn-custom:hover {
+            background-color: #1f5d9e;
+        }
+
+        .login-box p {
+            margin-top: 20px;
+            color: #777777;
+        }
+
+        .login-box a {
+            color: #2a6db8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-box a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="login-box shadow-lg p-3 mb-5 bg-white rounded">
+            <div style="margin-bottom: 30px;">
+                <h1>Login</h1>
+            </div>
+            <form action="{{ url_for('login') }}" method="post">
+                <div class="msg">{{ msg }}</div>
+                <div class="form-group">
+                    <input id="username" name="username" type="text" placeholder="Enter Your Username"
+                        class="form-control textbox" />
+                </div>
+                <div class="form-group">
+                    <input id="password" name="password" type="password" placeholder="Enter Your Password"
+                        class="form-control textbox" />
+                </div>
+                <button type="submit" class="btn btn-primary btn-custom">Sign In</button>
+            </form>
+            <p>Don't have an account? <a href="{{url_for('register')}}">Sign Up here</a></p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
